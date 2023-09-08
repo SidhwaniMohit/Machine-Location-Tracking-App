@@ -1,25 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import Sidebar from "./Sidebar";
+import Map from "./Map";
+import {Machine} from "./Machine";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 function App() {
+  const [machineData, setMachineData] = useState([]);
+  const [activeMachines, setActiveMachines] = useState([]);
+  const handleButtonClick = (machines: Machine[]) => {
+    setActiveMachines(machines);
+  };
+  useEffect(() => {
+    axios.get('http://localhost:4000/machines')
+        .then(response => {
+          const data = response.data;
+          const mappedData = data.map((item) => {
+            return new Machine(item.id, item.vin, item.name, item.make, item.type, item.model, item.lastKnown, item.locationHistory);
+          });
+          setMachineData(mappedData);
+          setActiveMachines(mappedData);
+        })
+        .catch(error => {
+          console.error("Error Fetching From API", error)
+        });
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <div className="sideBar">
+          {/* <Sidebar3 />*/}
+          <Sidebar machineList={machineData} onButtonClick={handleButtonClick}/>
+        </div>
+        <div className="map">
+          <Map activeMachines={activeMachines}/>
+        </div>
+      </div>
   );
 }
+
 
 export default App;

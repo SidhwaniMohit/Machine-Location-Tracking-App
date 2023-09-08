@@ -1,38 +1,245 @@
 .App {
-  text-align: center;
+  height: 100vh;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  justify-content: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sideBar {
+  height: 96%;
+  width: 20%;
+  background-color: white;
+  margin-right: 5px;
+  margin-left: -20px;
+  padding: 5px;
+  border: thick solid rgb(70, 95, 112);
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar-links li {
+  margin: 10px 0;
+  padding: 5px 15px;
+  color: #000000;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.sidebar-links li:hover {
+  color: rgb(70, 95, 112);
+}
+
+sidebar-links li:active {
+  color: rgb(70, 95, 112);
+}
+
+.sidebar-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.map {
+  height: 96%;
+  width: 75%;
+  padding: 5px;
+  border: thick solid rgb(70, 95, 112);
+  border-radius: 5px;
+}
+
+
+/* CSS */
+.button-23 {
+  background-color: #FFFFFF;
+  border: 1px solid rgb(70, 95, 112);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: rgb(70, 95, 112);
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 100%;
+  /*   margin-bottom: 8px;*/
+}
+
+
+.button-23-select {
+  background-color: rgb(70, 95, 112);
+  border: 1px solid rgb(70, 95, 112);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 100%;
+  /* margin-bottom: 8px;*/
+}
+
+
+.branch-container,
+.sub-branch-container {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+}
+
+.branch-container-show,
+.sub-branch-container-show {
+  opacity: 1;
+  max-height: 200px; /* Adjust the max-height value as needed */
+  transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out;
+}
+
+
+.button-23:focus-visible {
+  box-shadow: rgb(70, 95, 112) 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+
+.button-23:active {
+  background-color: #F7F7F7;
+  background-color: #ffffff;
+  border-color: rgb(70, 95, 112);
+  transform: scale(.96);
+}
+
+.button-23:disabled {
+  border-color: #DDDDDD;
+  color: rgb(70, 95, 112);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.heading-span {
+  font-weight: bold;
+  color: rgb(70, 95, 112);
+}
+
+.detail-list {
+  margin: 0 auto;
+  padding: 0;
+  font-size: smaller;
+}
+
+.org-name {
+  font-size: 10px;
+  font-weight: 300;
+  text-align: center;
+  padding: 0;
+}
+
+.button-23-dropdown {
+  background-color: #FFFFFF;
+  border: 1px solid rgb(70, 95, 112);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: rgb(70, 95, 112);
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s, -ms-transform .1s, -webkit-transform .1s, transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 100%;
+}
+
+.button-23-dropdown option {
+  background-color: #FFFFFF;
+  color: rgb(70, 95, 112);
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+}
+
+.button-23-dropdown option:hover {
+  background-color: #E5F7E9;
+  cursor: pointer;
+}
+
+
+/* Style for the custom dropdown container */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style for the dropdown button */
+.button-23-dropdown {
+  background-color: #FFFFFF;
+  border: 1px solid rgb(70, 95, 112);
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: rgb(70, 95, 112);
+  cursor: pointer;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  width: 100%;
+}
+
+/* Style for the custom dropdown arrow */
+.custom-dropdown-arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  line-height: 1;
+  pointer-events: none;
+  color: rgb(70, 95, 112);
 }
