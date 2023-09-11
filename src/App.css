@@ -55,11 +55,11 @@ sidebar-links li:active {
 
 /* CSS */
 .button-23 {
-  background: linear-gradient(to right, #70c200 0%, #50a200 100%);
+  background: #FFFFFF;
   border: 1px solid rgb(70, 95, 112);
   border-radius: 8px;
   box-sizing: border-box;
-  color: #ffffff;
+  color: #70c200;
   cursor: pointer;
   display: inline-block;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
@@ -82,11 +82,11 @@ sidebar-links li:active {
 
 
 .button-23-select {
-  background-color: #ffffff;
+  background: linear-gradient(to right, #70c200 0%, #50a200 100%);
   border: 1px solid rgb(70, 95, 112);
   border-radius: 8px;
   box-sizing: border-box;
-  color: #70c200;
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
@@ -145,7 +145,7 @@ sidebar-links li:active {
 
 .heading-span {
   font-weight: bold;
-  color: rgb(70, 95, 112);
+  color: #70c200;
 }
 
 .detail-list {
@@ -250,9 +250,9 @@ sidebar-links li:active {
 }
 button#all:hover {
   background: #70c200;
-  color: #fff;
+  color: #FFFFFF;
 }
 button.button-23:hover {
-  background: #ffffff;
-  color: #70c200;
+  background: #70c200;
+  color: #FFFFFF;
 }

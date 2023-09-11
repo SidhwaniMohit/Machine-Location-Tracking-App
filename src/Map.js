@@ -16,7 +16,7 @@ const Map = ({activeMachines}) => {
 export function GMap({activeMachines}) {
 
     const [activeMarker, setActiveMarker] = useState(null);
-    const tractorIcon = "http://localhost:3000/tractors.png"
+    const tractorIcon = "http://localhost:3000/tractors3.png"
     const handleOnLoad = (map) => {
         console.log("handle On Load Called")
         const bounds = new window.google.maps.LatLngBounds();
@@ -31,7 +31,7 @@ export function GMap({activeMachines}) {
     if (!machinesLoaded)
         return <LoadingComponent isLoaded={machinesLoaded}/>
     return (
-        <GoogleMap onLoad={handleOnLoad} mapContainerStyle={{width: "75vw", height: "96vh"}}>
+        <GoogleMap onLoad={handleOnLoad} mapContainerStyle={{width: "75vw", height: "96vh"}} mapTypeId="satellite">
             {activeMachines.map(machine => (
                 <MarkerF key={machine.id} position={machine.lastKnown} icon={tractorIcon}
                          onClick={() => setActiveMarker(machine)}
@@ -60,6 +60,8 @@ function getMachineInfo(machine) {
                 <li>Category: {machine.type}</li>
                 <li>VIN: {machine.vin}</li>
                 <li>Last Known Location: {machine.lastKnown.lat} {machine.lastKnown.lng}</li>
+                <li>Location Address: {machine.locationAddress}</li>
+                <li>Last Update Time: {machine.lastUpdatedTime}</li>
             </ul>
         </div>
     </div>

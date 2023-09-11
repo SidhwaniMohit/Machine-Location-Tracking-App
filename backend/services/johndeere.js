@@ -8,11 +8,11 @@ app.use(cors())
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs')
 
-const authToken = 'Bearer eyJraWQiOiJURUpqLThwSWdTRFNJeDNnR19aUjVOT1FQRlJRQ1JQaWE0S0N2YkpqZ3VrIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULnZEMlBJYVk2TUtaNE1xYUlyZXJSTGktUExIbHRnUzlqbHQ0UHdwM0hoS2siLCJpc3MiOiJodHRwczovL3NpZ25pbi5qb2huZGVlcmUuY29tL29hdXRoMi9hdXM3OHRubGF5c01yYUZoQzF0NyIsImF1ZCI6ImNvbS5kZWVyZS5pc2cuYXhpb20iLCJpYXQiOjE2OTQxNTA3ODAsImV4cCI6MTY5NDE5Mzk4MCwiY2lkIjoiMG9hYWd6aXd4YnkwdXRYa1U1ZDciLCJ1aWQiOiIwMHVhZjUyMDJsZzNvcVJRTjVkNyIsInNjcCI6WyJhZzIiLCJhZzEiLCJlcTIiLCJlcTEiXSwiYXV0aF90aW1lIjoxNjk0MTE4OTAxLCJzdWIiOiJrb3V0dWswNSIsImlzY3NjIjp0cnVlLCJ0aWVyIjoiU0FOREJPWCIsImNuYW1lIjoiVGVzdEFwcGxpY2F0aW9uMDUiLCJ1c2VyVHlwZSI6IkN1c3RvbWVyIiwiY2FwaWQiOiJmZGNkNDNmYS1mMWMzLTQ2YjQtOGZiMC00NWYyZDA5MjUxNjIifQ.YezA2eI_AQpYY6__mVcXZZljoqyIWeJr-CXeyejsK2HhYnHPd9GOp0UlY-Mxq8qChWvq8nA7ihxomrCLHHv4rQxChTkRlTAffUwbC2LgGlhIv0o_QPzZPg2dH6dt7mnyIxP9C6sRZIDawp-DNmWxAhTYV7ZQhvbrBgUb4MJK5geb--HdJBgEL1h-dKAiT_Pf_t0cpiDFKh7gK6Z8D37KE1386MxZ4IYkdW6ot4IpYmSI1083DEkHmNvssSnCTmE07EdUxG9qO_Bal-L9tFD_SGOpIJH7C7EmM36HWn9tUqGSPZ_s1esAalcgZTfP0TxIV_JPgm9QDDoQaKSkC4tKgA';
+const authToken = 'Bearer eyJraWQiOiJURUpqLThwSWdTRFNJeDNnR19aUjVOT1FQRlJRQ1JQaWE0S0N2YkpqZ3VrIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULkVXcnBwNElMajFRRkEyZ1BJT0Fobjh2SHFtaFVtdmd4dE4yajl4d2NlZnMiLCJpc3MiOiJodHRwczovL3NpZ25pbi5qb2huZGVlcmUuY29tL29hdXRoMi9hdXM3OHRubGF5c01yYUZoQzF0NyIsImF1ZCI6ImNvbS5kZWVyZS5pc2cuYXhpb20iLCJpYXQiOjE2OTQ0MTIwMDYsImV4cCI6MTY5NDQ1NTIwNiwiY2lkIjoiMG9hYWd6aXd4YnkwdXRYa1U1ZDciLCJ1aWQiOiIwMHVhZjUyMDJsZzNvcVJRTjVkNyIsInNjcCI6WyJhZzIiLCJhZzEiLCJlcTIiLCJlcTEiXSwiYXV0aF90aW1lIjoxNjk0Mzc1NTgxLCJzdWIiOiJrb3V0dWswNSIsImlzY3NjIjp0cnVlLCJ0aWVyIjoiU0FOREJPWCIsImNuYW1lIjoiVGVzdEFwcGxpY2F0aW9uMDUiLCJ1c2VyVHlwZSI6IkN1c3RvbWVyIiwiY2FwaWQiOiJmZGNkNDNmYS1mMWMzLTQ2YjQtOGZiMC00NWYyZDA5MjUxNjIifQ.nFOjE-uq8FoyVGgB_cscK14InYq5zny3Isd-rgwCqoSE5Txc3TUxzQvbRokH1qMrQ-8Bau_ejkAKJomj_33idXOqhffPtEsT4IFLhKP4rEXOooPBPvmFzevdRstcSlp1QoNuliHQt-0PlYZY59qbbOeKUpuqHbodVSLXgKmki1iSOCnbLXdXJLEt2_7i0yjm9Yonfqvjd4kwX3nHxIX_KjecrMT3_LBJdEafn_67DmI80dS0zlo4cTtL3ETNQ-mL4pEhQJD0fnCIpndsSL2Cjta7WSFspPRDH92HH4V6amm4ZekP65bpIZaMShtDM5Tx7JvksD5Ggn9WgFeTeWTj3w'
 app.get('/machines', async (req, res) => {
 
     let Machine = class {
-        constructor(id, vin, name, make, type, model, lastKnown, locationHistory) {
+        constructor(id, vin, name, make, type, model, lastKnown, locationHistory, lastUpdatedTime, locationAddress) {
             this.id = id;
             this.vin = vin;
             this.name = name;
@@ -20,7 +20,9 @@ app.get('/machines', async (req, res) => {
             this.type = type;
             this.model = model;
             this.lastKnown = lastKnown;
-            this.locationHistory = locationHistory
+            this.locationHistory = locationHistory;
+            this.lastUpdatedTime = lastUpdatedTime;
+            this.locationAddress = locationAddress
         }
     };
 
@@ -39,7 +41,13 @@ app.get('/machines', async (req, res) => {
         machine.model = machines.values[i].equipmentModel.name
 
         var locationLast = await getMachineLastLocation(machines.values[i].id)
+        console.log(locationLast)
         machine.lastKnown = locationLast !== undefined && locationLast.values.length > 0 ? transformPoint(locationLast.values[0].point) : { lat: 42.562917, lng: -95.536972 };
+        var time = locationLast.values[0].eventTimestamp;
+        machine.lastUpdatedTime = timeConvertor(time);
+        var locationAddress = await getLocationAddress(machine.lastKnown.lat, machine.lastKnown.lng);
+        machine.locationAddress = locationAddress.results[0].formatted_address;
+       /* console.log(locationAddress);*/
         let locationHistory = await getMachineHistory(machines.values[i].id)
         // Sort the location history array based on timestamps
         locationHistory = locationHistory.values.sort(compareTimestamps);
@@ -63,6 +71,16 @@ app.get('/machines', async (req, res) => {
 async function getMachines() {
 
     var optionsTemp = getOptions('https://sandboxapi.deere.com/platform/organizations/157679/machines')
+    let result0 = await req(optionsTemp);
+    //console.log(result0.resp.body);
+    return result0.resp.body;
+
+}
+
+
+async function getLocationAddress(lat, long) {
+
+    var optionsTemp = getOptionsGoogle('https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+long+'&key=AIzaSyBGyJn-zW6WKi9QT8UpVm9V6y6mK5qzrCE')
     let result0 = await req(optionsTemp);
     //console.log(result0.resp.body);
     return result0.resp.body;
@@ -114,6 +132,19 @@ function getOptions(url) {
     return options;
 }
 
+
+function getOptionsGoogle(url) {
+    const options = {
+        method: 'GET',
+        uri: url,
+        json: true,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }
+    return options;
+}
+
 app.listen(4000, () => console.log('Example app listening on port 4000!'));
 
 function transformPoint(point){
@@ -130,4 +161,35 @@ function compareTimestamps(a, b) {
     if (timestampA < timestampB) return -1;
     if (timestampA > timestampB) return 1;
     return 0;
+}
+
+
+function timeConvertor(isoTimestamp){
+// Desired time zone
+    const timeZone = "America/Chicago"; // Example time zone (Eastern Time)
+
+// Convert ISO timestamp to date object
+    const date = new Date(isoTimestamp);
+
+    const monthNames = [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    ];
+
+// Create a formatter with the desired time zone
+    const formatter = new Intl.DateTimeFormat("en-US", {
+        timeZone: timeZone,
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        timeZoneName: "short"
+    });
+
+// Format the date and time with the specified time zone
+    const formattedDate = formatter.format(date);
+
+    return formattedDate;
 }

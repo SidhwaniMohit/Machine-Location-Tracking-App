@@ -26,7 +26,9 @@ function App() {
             item.type,
             item.model,
             item.lastKnown,
-            item.locationHistory
+            item.locationHistory,
+            item.lastUpdatedTime,
+            item.locationAddress
           );
         });
         setMachineData(mappedData);
