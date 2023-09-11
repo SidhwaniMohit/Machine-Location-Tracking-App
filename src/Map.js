@@ -39,7 +39,7 @@ export function GMap({activeMachines}) {
             ))}
 
             {activeMarker && (
-                <InfoWindowF position={activeMarker.lastKnown}
+                <InfoWindowF position={activeMarker.lastKnown} options={{ pixelOffset: new window.google.maps.Size(0, -50) }}
                              onCloseClick={() => setActiveMarker(null)}>
                     <div>{getMachineInfo(activeMarker)}</div>
                 </InfoWindowF>
