@@ -4,18 +4,17 @@
   padding: 10px;
   display: flex;
   flex-direction: row;
-  background-color: white;
+  background-color: #333333;
   justify-content: center;
 }
 
 .sideBar {
   height: 96%;
   width: 20%;
-  background-color: white;
+  /* background-color: white; */
   margin-right: 5px;
   margin-left: -20px;
-  padding: 5px;
-  border: thick solid rgb(70, 95, 112);
+  /* border: thick solid rgb(70, 95, 112); */
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -48,18 +47,19 @@ sidebar-links li:active {
   height: 96%;
   width: 75%;
   padding: 5px;
-  border: thick solid rgb(70, 95, 112);
-  border-radius: 5px;
+  /* border-left: thick solid rgb(181, 181, 181); */
+  /* border-radius: 5px; */
+  background-color: #ffffff;
 }
 
 
 /* CSS */
 .button-23 {
-  background-color: #FFFFFF;
+  background: linear-gradient(to right, #70c200 0%, #50a200 100%);
   border: 1px solid rgb(70, 95, 112);
   border-radius: 8px;
   box-sizing: border-box;
-  color: rgb(70, 95, 112);
+  color: #ffffff;
   cursor: pointer;
   display: inline-block;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
@@ -82,11 +82,11 @@ sidebar-links li:active {
 
 
 .button-23-select {
-  background-color: rgb(70, 95, 112);
+  background-color: #ffffff;
   border: 1px solid rgb(70, 95, 112);
   border-radius: 8px;
   box-sizing: border-box;
-  color: #ffffff;
+  color: #70c200;
   cursor: pointer;
   display: inline-block;
   font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
@@ -155,8 +155,8 @@ sidebar-links li:active {
 }
 
 .org-name {
-  font-size: 10px;
-  font-weight: 300;
+  font-size: 12px;
+  font-weight: 500;
   text-align: center;
   padding: 0;
 }
@@ -242,4 +242,17 @@ sidebar-links li:active {
   line-height: 1;
   pointer-events: none;
   color: rgb(70, 95, 112);
+}
+.Logo-bg{
+  background-color: #333333;
+  padding: 0.5rem;
+  border-bottom: 1px solid #eeeeee;
+}
+button#all:hover {
+  background: #70c200;
+  color: #fff;
+}
+button.button-23:hover {
+  background: #ffffff;
+  color: #70c200;
 }
